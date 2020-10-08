@@ -1,0 +1,75 @@
+object Form3: TForm3
+  Left = 399
+  Height = 439
+  Top = 324
+  Width = 431
+  Caption = 'Form3'
+  ClientHeight = 439
+  ClientWidth = 431
+  LCLVersion = '2.0.6.0'
+  object StringGrid1: TStringGrid
+    Left = 38
+    Height = 144
+    Top = 8
+    Width = 346
+    FixedCols = 0
+    FixedRows = 0
+    TabOrder = 0
+  end
+  object StringGrid2: TStringGrid
+    Left = 38
+    Height = 144
+    Top = 168
+    Width = 346
+    FixedCols = 0
+    FixedRows = 0
+    TabOrder = 4
+  end
+  object Edit1: TEdit
+    Left = 80
+    Height = 33
+    Top = 336
+    Width = 80
+    TabOrder = 2
+    Text = '1'
+  end
+  object Label1: TLabel
+    Left = 42
+    Height = 15
+    Top = 344
+    Width = 25
+    Caption = 'N = '
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 42
+    Height = 35
+    Top = 372
+    Width = 118
+    Caption = 'Рассчитать'
+    TabOrder = 3
+  end
+  object PanelErrorMessage: TPanel
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 30
+    Top = 408
+    Width = 431
+    Anchors = [akLeft, akRight, akBottom]
+    BorderSpacing.Bottom = 1
+    ClientHeight = 30
+    ClientWidth = 431
+    TabOrder = 1
+    object LblErrorMessage: TLabel
+      Left = 8
+      Height = 1
+      Top = 8
+      Width = 1
+      ParentColor = False
+    end
+  end
+end

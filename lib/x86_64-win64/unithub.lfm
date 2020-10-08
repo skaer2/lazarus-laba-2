@@ -1,0 +1,8 @@
+object HubForm: THubForm
+  Left = 322
+  Height = 240
+  Top = 133
+  Width = 320
+  Caption = 'HubForm'
+  LCLVersion = '2.0.10.0'
+end
