@@ -40,6 +40,7 @@ type
 
 Const
    NUMERIC_CHARS = '1234567890';
+
 var
    Form1: TForm1;
 
@@ -79,7 +80,7 @@ begin
      Begin
         x := StrToInt(EditInputXIndex.Text);
         y := StrToInt(EditInputYIndex.Text);
-        if IsInBounds(x,y)
+        if IsInBounds(x,y, StringGrid1)
            then StringGrid1.Cells[x,y] := EditInputValue.Text
         else ReportError('Введеные значения вне границ таблицы', LblErrorMessage);
      end;
@@ -90,8 +91,8 @@ var
    f1:Boolean;
    f2:Boolean;
 Begin
-     f1 := Not IsStringCorrect(EditNewSizeN.Text, NUMERIC_CHARS); //X field
-     f2 := Not IsStringCorrect(EditNewSizeM.Text, NUMERIC_CHARS); //Y field
+     f1 := Not IsStringCorrect(EditNewSizeN.Text, NUMERIC_CHARS); //N field
+     f2 := Not IsStringCorrect(EditNewSizeM.Text, NUMERIC_CHARS); //M field
 
      If f1 or f2 then
      Begin

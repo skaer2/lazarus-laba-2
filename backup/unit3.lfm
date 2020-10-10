@@ -6,6 +6,7 @@ object Form3: TForm3
   Caption = 'Form3'
   ClientHeight = 439
   ClientWidth = 431
+  OnCreate = FormCreate
   LCLVersion = '2.0.6.0'
   object StringGrid1: TStringGrid
     Left = 38
@@ -41,12 +42,13 @@ object Form3: TForm3
     Caption = 'N = '
     ParentColor = False
   end
-  object Button1: TButton
+  object BtnCalculate: TButton
     Left = 42
     Height = 35
     Top = 372
     Width = 118
     Caption = 'Рассчитать'
+    OnClick = BtnCalculateClick
     TabOrder = 3
   end
   object PanelErrorMessage: TPanel
@@ -66,9 +68,10 @@ object Form3: TForm3
     TabOrder = 1
     object LblErrorMessage: TLabel
       Left = 8
-      Height = 1
+      Height = 15
       Top = 8
-      Width = 1
+      Width = 38
+      Caption = 'check'
       ParentColor = False
     end
   end

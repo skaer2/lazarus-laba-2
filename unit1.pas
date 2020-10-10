@@ -6,7 +6,7 @@ interface
 
 uses
  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Grids, StdCtrls,
- PopupNotifier, ComCtrls, ExtCtrls, functionsUnit;
+ ComCtrls, ExtCtrls, functionsUnit;
 
 type
 
@@ -40,6 +40,7 @@ type
 
 Const
    NUMERIC_CHARS = '1234567890';
+
 var
    Form1: TForm1;
 
@@ -90,8 +91,8 @@ var
    f1:Boolean;
    f2:Boolean;
 Begin
-     f1 := Not IsStringCorrect(EditNewSizeN.Text, NUMERIC_CHARS); //X field
-     f2 := Not IsStringCorrect(EditNewSizeM.Text, NUMERIC_CHARS); //Y field
+     f1 := Not IsStringCorrect(EditNewSizeN.Text, NUMERIC_CHARS); //N field
+     f2 := Not IsStringCorrect(EditNewSizeM.Text, NUMERIC_CHARS); //M field
 
      If f1 or f2 then
      Begin

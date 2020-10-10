@@ -6,25 +6,26 @@ interface
 
 uses
     Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Grids, StdCtrls,
-    ComCtrls, ExtCtrls;
+    ComCtrls, ExtCtrls, math;
 
+procedure ReportError(s:String; lbl:TLabel);
 function IsInBounds(x,y:Integer; grid:TStringGrid):Boolean;
 function IsStringCorrect(s:String; alowedChars:String):Boolean;
 function IsStringCorrectInv(s:String; disalowedChars:String):Boolean;
-procedure ReportError(s:String; lbl:TLabel);
+function roundToN(x:Real; n:Integer):Real;
 
 implementation
+
+procedure ReportError(s:String; lbl:TLabel);
+Begin
+     lbl.Caption := s;
+end;
 
 function IsInBounds(x,y:Integer; grid:TStringGrid):Boolean;
 Begin
     If ((x >= 0) and (x < grid.ColCount)) and ( (y >=0) and (y < grid.RowCount))
        then result := true
     else result := false;
-end;
-
-procedure ReportError(s:String; lbl:TLabel);
-Begin
-     lbl.Caption := s;
 end;
 
 //Checks if all symbols in the string 's' are in string 'alowedChars'
@@ -66,7 +67,15 @@ Begin
      result := stringCorrect;
 end;
 
-
+//Rounds "x" to the Nth digit after the point
+function roundToN(x:Real; n:Integer):Real;
+var
+   y : Integer;
+Begin
+     y := trunc(power(10, n));
+     x := Round(x * y) / y;
+     result := x;
+end;
 
 end.
 
