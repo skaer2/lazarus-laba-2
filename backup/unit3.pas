@@ -72,7 +72,6 @@ procedure TForm3.BtnCalculateClick(Sender: TObject);
 Var
    i,j:Integer;
    n:Integer;
-   Y:real;
 Begin
      If DoCheckInput() then
         Begin

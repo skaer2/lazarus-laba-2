@@ -24,6 +24,7 @@ object Form1: TForm1
     BorderSpacing.Bottom = 20
     FixedCols = 0
     FixedRows = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
     TabOrder = 0
   end
   object PanelErrorMessage: TPanel

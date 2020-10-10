@@ -13,9 +13,9 @@ object Form4: TForm4
     Height = 136
     Top = 16
     Width = 336
+    ColumnClickSorts = True
     FixedCols = 0
     FixedRows = 0
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
     TabOrder = 0
   end
   object StringGrid2: TStringGrid

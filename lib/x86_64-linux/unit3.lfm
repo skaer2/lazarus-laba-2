@@ -15,6 +15,7 @@ object Form3: TForm3
     Width = 346
     FixedCols = 0
     FixedRows = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
     TabOrder = 0
   end
   object StringGrid2: TStringGrid
