@@ -1,12 +1,12 @@
 object Form1: TForm1
-  Left = 532
+  Left = 460
   Height = 395
-  Top = 313
+  Top = 336
   Width = 576
   Caption = 'Form1'
   ClientHeight = 395
   ClientWidth = 576
-  LCLVersion = '2.0.6.0'
+  LCLVersion = '2.0.10.0'
   object StringGrid1: TStringGrid
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -70,7 +70,7 @@ object Form1: TForm1
     TabOrder = 2
     object EditInputValue: TEdit
       Left = 16
-      Height = 33
+      Height = 23
       Top = 24
       Width = 176
       TabOrder = 0
@@ -87,7 +87,7 @@ object Form1: TForm1
     end
     object EditInputXIndex: TEdit
       Left = 48
-      Height = 33
+      Height = 23
       Top = 72
       Width = 52
       TabOrder = 2
@@ -95,7 +95,7 @@ object Form1: TForm1
     end
     object EditInputYIndex: TEdit
       Left = 140
-      Height = 33
+      Height = 23
       Top = 72
       Width = 52
       TabOrder = 3
@@ -103,7 +103,7 @@ object Form1: TForm1
     end
     object EditNewSizeN: TEdit
       Left = 392
-      Height = 33
+      Height = 23
       Top = 24
       Width = 80
       TabOrder = 4
@@ -111,7 +111,7 @@ object Form1: TForm1
     end
     object EditNewSizeM: TEdit
       Left = 392
-      Height = 33
+      Height = 23
       Top = 72
       Width = 80
       TabOrder = 5
@@ -130,7 +130,7 @@ object Form1: TForm1
       Left = 16
       Height = 15
       Top = 80
-      Width = 13
+      Width = 10
       Caption = 'X:'
       ParentColor = False
     end
@@ -138,7 +138,7 @@ object Form1: TForm1
       Left = 112
       Height = 15
       Top = 80
-      Width = 12
+      Width = 10
       Caption = 'Y:'
       ParentColor = False
     end
@@ -146,7 +146,7 @@ object Form1: TForm1
       Left = 368
       Height = 15
       Top = 32
-      Width = 15
+      Width = 12
       Caption = 'N:'
       ParentColor = False
     end
@@ -154,7 +154,7 @@ object Form1: TForm1
       Left = 368
       Height = 15
       Top = 80
-      Width = 17
+      Width = 14
       Caption = 'M:'
       ParentColor = False
     end

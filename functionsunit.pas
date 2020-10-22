@@ -67,27 +67,6 @@ Begin
      result := stringCorrect;
 end;
 
-function IsStringNumeric(s:String):Boolean;
-Const
-   NUMERIC_CHARS = '1234567890';
-   i,k:Integer;
-Begin
-     result := false;
-     If s.Length > 0 then
-     Begin
-          If s[1] = "-" then i := 2
-             else i := 1;
-          for i := 1 to length(s) do
-          Begin
-              symbolCorrect := false;
-              for j := 1 to alowedChars.Length do
-                  if s[i] = alowedChars[j] then symbolCorrect := true;
-              if not symbolCorrect then stringCorrect := false;
-          end;
-          result := stringCorrect;
-     end;
-end;
-
 //Rounds "x" to the Nth digit after the point
 function roundToN(x:Real; n:Integer):Real;
 var
