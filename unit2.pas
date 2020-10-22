@@ -12,7 +12,19 @@ type
  { TForm2 }
 
  TForm2 = class(TForm)
-     StringGrid1: TStringGrid;
+   BtnGenerate: TButton;
+   BtnFill: TButton;
+   EditGenArray: TEdit;
+   EditA: TEdit;
+   EditB: TEdit;
+   GroupBox1: TGroupBox;
+   LblEnterNums: TLabel;
+   LblGenArray: TLabel;
+   LblA: TLabel;
+   LblB: TLabel;
+   StringGrid1: TStringGrid;
+   procedure BtnGenerateClick(Sender: TObject);
+   procedure FormCreate(Sender: TObject);
  private
 
  public
@@ -25,6 +37,23 @@ var
 implementation
 
 {$R *.lfm}
+
+{ TForm2 }
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+
+end;
+
+procedure TForm2.BtnGenerateClick(Sender: TObject);
+Var
+   a,b:Int;
+begin
+     Randomize;
+
+
+     If TryStrToInt();
+end;
 
 end.
 

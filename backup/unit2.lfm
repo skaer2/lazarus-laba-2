@@ -1,8 +1,107 @@
 object Form2: TForm2
-  Left = 924
-  Height = 240
-  Top = 299
-  Width = 320
+  Left = 364
+  Height = 454
+  Top = 351
+  Width = 654
   Caption = 'Form2'
+  ClientHeight = 454
+  ClientWidth = 654
+  OnCreate = FormCreate
   LCLVersion = '2.0.10.0'
+  object StringGrid1: TStringGrid
+    Left = 32
+    Height = 286
+    Top = 152
+    Width = 592
+    TabOrder = 0
+  end
+  object GroupBox1: TGroupBox
+    Left = 16
+    Height = 121
+    Top = 16
+    Width = 628
+    Caption = 'GroupBox1'
+    ClientHeight = 101
+    ClientWidth = 624
+    TabOrder = 1
+    object BtnGenerate: TButton
+      Left = 141
+      Height = 25
+      Top = 48
+      Width = 96
+      Caption = 'Сгенерировать'
+      OnClick = BtnGenerateClick
+      TabOrder = 0
+    end
+    object BtnFill: TButton
+      Left = 461
+      Height = 25
+      Top = 67
+      Width = 75
+      Caption = 'Заполнить'
+      TabOrder = 1
+    end
+    object EditGenArray: TEdit
+      Left = 389
+      Height = 23
+      Top = 37
+      Width = 224
+      AutoSize = False
+      TabOrder = 2
+    end
+    object EditA: TEdit
+      Left = 45
+      Height = 23
+      Top = 37
+      Width = 80
+      AutoSize = False
+      TabOrder = 3
+      Text = '5'
+    end
+    object EditB: TEdit
+      Left = 45
+      Height = 23
+      Top = 69
+      Width = 80
+      AutoSize = False
+      TabOrder = 4
+      Text = '5'
+    end
+    object LblA: TLabel
+      Left = 13
+      Height = 15
+      Top = 37
+      Width = 8
+      AutoSize = False
+      Caption = 'A'
+      ParentColor = False
+    end
+    object LblB: TLabel
+      Left = 13
+      Height = 15
+      Top = 69
+      Width = 7
+      AutoSize = False
+      Caption = 'B'
+      ParentColor = False
+    end
+    object LblGenArray: TLabel
+      Left = 389
+      Height = 15
+      Top = 8
+      Width = 145
+      AutoSize = False
+      Caption = 'Сгенерированный массив'
+      ParentColor = False
+    end
+    object LblEnterNums: TLabel
+      Left = 53
+      Height = 15
+      Top = 8
+      Width = 106
+      AutoSize = False
+      Caption = 'Ввведите два числа'
+      ParentColor = False
+    end
+  end
 end
