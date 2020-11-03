@@ -1,8 +1,101 @@
 object Form6: TForm6
-  Left = 1040
-  Height = 240
-  Top = 297
-  Width = 320
+  Left = 707
+  Height = 385
+  Top = 261
+  Width = 509
   Caption = 'Form6'
+  ClientHeight = 385
+  ClientWidth = 509
+  OnCreate = FormCreate
   LCLVersion = '2.0.10.0'
+  object StringGrid1: TStringGrid
+    Left = 18
+    Height = 188
+    Top = 22
+    Width = 464
+    ColCount = 6
+    RowCount = 1
+    TabOrder = 0
+  end
+  object GrpBxControls: TGroupBox
+    Left = 8
+    Height = 144
+    Top = 216
+    Width = 472
+    Caption = 'Ввод данных'
+    ClientHeight = 124
+    ClientWidth = 468
+    TabOrder = 1
+    object BtnAdd: TButton
+      Left = 352
+      Height = 25
+      Top = 96
+      Width = 75
+      Caption = 'Добавить'
+      TabOrder = 0
+    end
+    object ClBtnGroupColor: TColorButton
+      Left = 264
+      Height = 25
+      Top = 96
+      Width = 80
+      BorderWidth = 2
+      ButtonColorSize = 16
+      ButtonColor = clWhite
+      OnColorChanged = ClBtnGroupColorColorChanged
+    end
+    object LblColor: TLabel
+      Left = 269
+      Height = 15
+      Top = 80
+      Width = 70
+      Caption = 'Цвет группы'
+      ParentColor = False
+    end
+    object EditRoom: TEdit
+      Left = 352
+      Height = 23
+      Top = 24
+      Width = 80
+      TabOrder = 1
+    end
+    object LblRoom: TLabel
+      Left = 360
+      Height = 15
+      Top = 4
+      Width = 59
+      Caption = 'Аудитория'
+      ParentColor = False
+    end
+    object EditClass: TEdit
+      Left = 35
+      Height = 23
+      Top = 24
+      Width = 191
+      TabOrder = 2
+    end
+    object LblClass: TLabel
+      Left = 48
+      Height = 15
+      Top = 4
+      Width = 69
+      Caption = 'Дисциплина'
+      ParentColor = False
+    end
+    object LblGroup: TLabel
+      Left = 48
+      Height = 15
+      Top = 56
+      Width = 39
+      Caption = 'Группа'
+      ParentColor = False
+    end
+    object EditGroup: TEdit
+      Left = 35
+      Height = 23
+      Top = 72
+      Width = 163
+      TabOrder = 3
+    end
+  end
 end

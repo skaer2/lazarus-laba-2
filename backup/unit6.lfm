@@ -1,0 +1,127 @@
+object Form6: TForm6
+  Left = 707
+  Height = 385
+  Top = 261
+  Width = 509
+  Caption = 'Form6'
+  ClientHeight = 385
+  ClientWidth = 509
+  OnCreate = FormCreate
+  LCLVersion = '2.0.10.0'
+  object StringGrid1: TStringGrid
+    Left = 18
+    Height = 188
+    Top = 22
+    Width = 464
+    ColCount = 6
+    RowCount = 1
+    TabOrder = 0
+  end
+  object GrpBxControls: TGroupBox
+    Left = 8
+    Height = 144
+    Top = 216
+    Width = 472
+    Caption = 'Ввод данных'
+    ClientHeight = 124
+    ClientWidth = 468
+    TabOrder = 1
+    object BtnAdd: TButton
+      Left = 352
+      Height = 25
+      Top = 96
+      Width = 75
+      Caption = 'Добавить'
+      TabOrder = 0
+    end
+    object ClBtnGroupColor: TColorButton
+      Left = 264
+      Height = 25
+      Top = 96
+      Width = 80
+      BorderWidth = 2
+      ButtonColorSize = 16
+      ButtonColor = clWhite
+    end
+    object LblColor: TLabel
+      Left = 269
+      Height = 15
+      Top = 80
+      Width = 70
+      Caption = 'Цвет группы'
+      ParentColor = False
+    end
+    object EditRoom: TEdit
+      Left = 352
+      Height = 23
+      Top = 24
+      Width = 80
+      TabOrder = 1
+    end
+    object LblRoom: TLabel
+      Left = 360
+      Height = 15
+      Top = 4
+      Width = 59
+      Caption = 'Аудитория'
+      ParentColor = False
+    end
+    object EditClass: TEdit
+      Left = 35
+      Height = 23
+      Top = 24
+      Width = 191
+      TabOrder = 2
+    end
+    object LblClass: TLabel
+      Left = 48
+      Height = 15
+      Top = 4
+      Width = 69
+      Caption = 'Дисциплина'
+      ParentColor = False
+    end
+    object LblGroup: TLabel
+      Left = 48
+      Height = 15
+      Top = 56
+      Width = 39
+      Caption = 'Группа'
+      ParentColor = False
+    end
+    object EditGroup: TEdit
+      Left = 35
+      Height = 23
+      Top = 72
+      Width = 163
+      TabOrder = 3
+    end
+  end
+  object ColorDialog1: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    Left = 456
+    Top = 216
+  end
+end
