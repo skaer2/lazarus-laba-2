@@ -25,6 +25,8 @@ type
    LblColor: TLabel;
    LblRoom: TLabel;
    StringGrid1: TStringGrid;
+   procedure BtnAddClick(Sender: TObject);
+   procedure ClBtnGroupColorColorChanged(Sender: TObject);
    procedure FormCreate(Sender: TObject);
  private
 
@@ -41,6 +43,7 @@ type
 
 var
  Form6: TForm6;
+ currentColor: TColor;
 
 implementation
 
@@ -55,6 +58,16 @@ begin
     StringGrid1.Cells[3,0] := 'Среда';
     StringGrid1.Cells[4,0] := 'Четверг';
     StringGrid1.Cells[5,0] := 'Пятница';
+end;
+
+procedure TForm6.ClBtnGroupColorColorChanged(Sender: TObject);
+begin
+     currentColor := ClBtnGroupColor.ColorDialog.Color;
+end;
+
+procedure TForm6.BtnAddClick(Sender: TObject);
+begin
+  If (EditClass.Text <> '') and (EditGroup.Text <> '') and (EditRoom.Text <> '') then;
 end;
 
 end.

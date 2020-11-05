@@ -15,6 +15,7 @@ type
  TForm6 = class(TForm)
    BtnAdd: TButton;
    ClBtnGroupColor: TColorButton;
+   ColorDialog1: TColorDialog;
    EditClass: TEdit;
    EditGroup: TEdit;
    EditRoom: TEdit;
@@ -24,6 +25,7 @@ type
    LblColor: TLabel;
    LblRoom: TLabel;
    StringGrid1: TStringGrid;
+   procedure BtnAddClick(Sender: TObject);
    procedure ClBtnGroupColorColorChanged(Sender: TObject);
    procedure FormCreate(Sender: TObject);
  private
@@ -41,6 +43,7 @@ type
 
 var
  Form6: TForm6;
+ currentColor: TColor;
 
 implementation
 
@@ -59,7 +62,15 @@ end;
 
 procedure TForm6.ClBtnGroupColorColorChanged(Sender: TObject);
 begin
-     ClBtnGroupColor.ColorDialog.;
+     currentColor := ClBtnGroupColor.ColorDialog.Color;
+end;
+
+procedure TForm6.BtnAddClick(Sender: TObject);
+begin
+  If (EditClass.Text <> '') and (EditGroup.Text <> '') and (EditRoom.Text <> '') then
+     Begin
+
+     end;
 end;
 
 end.

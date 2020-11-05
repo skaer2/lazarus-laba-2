@@ -32,6 +32,7 @@ object Form6: TForm6
       Top = 96
       Width = 75
       Caption = 'Добавить'
+      OnClick = BtnAddClick
       TabOrder = 0
     end
     object ClBtnGroupColor: TColorButton
@@ -42,6 +43,8 @@ object Form6: TForm6
       BorderWidth = 2
       ButtonColorSize = 16
       ButtonColor = clWhite
+      ColorDialog = ColorDialog1
+      OnColorChanged = ClBtnGroupColorColorChanged
     end
     object LblColor: TLabel
       Left = 269
@@ -121,7 +124,7 @@ object Form6: TForm6
       'ColorS=F0FBFF'
       'ColorT=A4A0A0'
     )
-    Left = 456
-    Top = 216
+    Left = 304
+    Top = 248
   end
 end
