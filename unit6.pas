@@ -39,11 +39,23 @@ type
    roomNumber:String;
    className:String;
    cellColor:TColor;
+   day:byte; // 1 for monday to 5 for friday
  end;
+
+Const
+  ARR_SIZE=50;
+  SC_MONDAY=1;
+  SC_TUESDAY=2;
+  SC_WEDNESDAY=3;
+  SC_THURSDAY=4;
+  SC_FRIDAY=5;
 
 var
  Form6: TForm6;
+ currentColorLock:Boolean;
  currentColor: TColor;
+ scheduleCells: array[ARR_SIZE] of scheduleCell;
+ currentIndex:Integer;
 
 implementation
 
@@ -58,6 +70,7 @@ begin
     StringGrid1.Cells[3,0] := 'Среда';
     StringGrid1.Cells[4,0] := 'Четверг';
     StringGrid1.Cells[5,0] := 'Пятница';
+    currentColor=clDef
 end;
 
 procedure TForm6.ClBtnGroupColorColorChanged(Sender: TObject);
