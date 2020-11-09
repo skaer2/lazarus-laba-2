@@ -1,10 +1,10 @@
 object Form6: TForm6
-  Left = 707
-  Height = 385
-  Top = 261
+  Left = 832
+  Height = 701
+  Top = 71
   Width = 509
   Caption = 'Form6'
-  ClientHeight = 385
+  ClientHeight = 701
   ClientWidth = 509
   OnCreate = FormCreate
   LCLVersion = '2.0.10.0'
@@ -16,29 +16,30 @@ object Form6: TForm6
     ColCount = 6
     RowCount = 1
     TabOrder = 0
+    OnDrawCell = StringGrid1DrawCell
   end
   object GrpBxControls: TGroupBox
     Left = 8
-    Height = 144
+    Height = 392
     Top = 216
     Width = 472
     Caption = 'Ввод данных'
-    ClientHeight = 124
+    ClientHeight = 372
     ClientWidth = 468
     TabOrder = 1
     object BtnAdd: TButton
-      Left = 352
+      Left = 368
       Height = 25
-      Top = 96
+      Top = 144
       Width = 75
       Caption = 'Добавить'
       OnClick = BtnAddClick
       TabOrder = 0
     end
     object ClBtnGroupColor: TColorButton
-      Left = 264
+      Left = 280
       Height = 25
-      Top = 96
+      Top = 144
       Width = 80
       BorderWidth = 2
       ButtonColorSize = 16
@@ -47,9 +48,9 @@ object Form6: TForm6
       OnColorChanged = ClBtnGroupColorColorChanged
     end
     object LblColor: TLabel
-      Left = 269
+      Left = 285
       Height = 15
-      Top = 80
+      Top = 128
       Width = 70
       Caption = 'Цвет группы'
       ParentColor = False
@@ -98,6 +99,125 @@ object Form6: TForm6
       Top = 72
       Width = 163
       TabOrder = 3
+    end
+    object LblDay: TLabel
+      Left = 48
+      Height = 15
+      Top = 104
+      Width = 27
+      Caption = 'День'
+      ParentColor = False
+    end
+    object RadioGroup1: TRadioGroup
+      Left = 35
+      Height = 175
+      Top = 128
+      Width = 118
+      AutoFill = True
+      AutoSize = True
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 155
+      ClientWidth = 114
+      TabOrder = 4
+      object RdBtnMonday: TRadioButton
+        AnchorSideLeft.Control = RadioGroup1
+        AnchorSideTop.Control = RadioGroup1
+        AnchorSideRight.Control = RadioGroup1
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = RdBtnTuesday
+        Left = 10
+        Height = 19
+        Top = 10
+        Width = 94
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Bottom = 10
+        Caption = 'Понедельник'
+        Checked = True
+        OnChange = RdBtnMondayChange
+        TabOrder = 4
+        TabStop = True
+      end
+      object RdBtnTuesday: TRadioButton
+        AnchorSideLeft.Control = RadioGroup1
+        AnchorSideTop.Control = RdBtnMonday
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = RadioGroup1
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = RdBtnWednesday
+        Left = 10
+        Height = 19
+        Top = 39
+        Width = 66
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Bottom = 10
+        Caption = 'Вторник'
+        TabOrder = 0
+      end
+      object RdBtnWednesday: TRadioButton
+        AnchorSideLeft.Control = RadioGroup1
+        AnchorSideTop.Control = RdBtnTuesday
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = RadioGroup1
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = RdBtnThursday
+        Left = 10
+        Height = 19
+        Top = 68
+        Width = 53
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Bottom = 10
+        Caption = 'Среда'
+        TabOrder = 1
+      end
+      object RdBtnThursday: TRadioButton
+        AnchorSideLeft.Control = RadioGroup1
+        AnchorSideTop.Control = RdBtnWednesday
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = RadioGroup1
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = RdBtnFriday
+        Left = 10
+        Height = 19
+        Top = 97
+        Width = 63
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Bottom = 10
+        Caption = 'Четверг'
+        TabOrder = 2
+      end
+      object RdBtnFriday: TRadioButton
+        AnchorSideLeft.Control = RadioGroup1
+        AnchorSideTop.Control = RdBtnThursday
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = RadioGroup1
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = RadioGroup1
+        AnchorSideBottom.Side = asrBottom
+        Left = 10
+        Height = 19
+        Top = 126
+        Width = 67
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Bottom = 10
+        Caption = 'Пятница'
+        TabOrder = 3
+      end
     end
   end
   object ColorDialog1: TColorDialog

@@ -107,16 +107,16 @@ begin
                 end;
            end;
         end;
-         Begin
-              with TStringGrid(Sender) do
-              begin
-              rAlign := Canvas.TextStyle;
-              rAlign.Alignment:=taRightJustify;
-              Canvas.TextStyle := rAlign;
-              Canvas.FillRect(aRect);
-              Canvas.TextRect(aRect,aRect.Left+2,aRect.Top+2,Cells[ACol, ARow] + ' ',rAlign);
-              end;
-         end;
+           Begin
+                with TStringGrid(Sender) do
+                begin
+                rAlign := Canvas.TextStyle;
+                rAlign.Alignment:=taRightJustify;
+                Canvas.TextStyle := rAlign;
+                Canvas.FillRect(aRect);
+                Canvas.TextRect(aRect,aRect.Left+2,aRect.Top+2,Cells[ACol, ARow] + ' ',rAlign);
+                end;
+           end;
 end;
 
 end.
