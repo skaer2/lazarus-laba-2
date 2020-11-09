@@ -49,7 +49,7 @@ type
    roomNumber:String;
    className:String;
    cellColor:TColor;
-   day:byte; // 1 for monday to 5 for friday
+   day:integer; // 1 for monday to 5 for friday
  end;
 
 Const
@@ -63,14 +63,15 @@ Const
 var
  Form6: TForm6;
 
- LockCrClr:Boolean;
+ LockCrClr: Boolean;
  currentColor: TColor;
 
  scheduleCells: array[0..ARR_SIZE] of scheduleCell;
  groups: array[0..ARR_SIZE] of String;
- currentIndex:Integer;
+ currentIndex: Integer;
 
-
+ selectedDay: integer;
+ LockSelDay: Boolean;
 
 implementation
 

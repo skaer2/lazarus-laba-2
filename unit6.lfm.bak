@@ -111,7 +111,7 @@ object Form6: TForm6
     object RadioGroup1: TRadioGroup
       Left = 35
       Height = 175
-      Top = 128
+      Top = 120
       Width = 118
       AutoFill = True
       AutoSize = True
@@ -141,6 +141,7 @@ object Form6: TForm6
         BorderSpacing.Bottom = 10
         Caption = 'Понедельник'
         Checked = True
+        OnChange = RdBtnMondayChange
         TabOrder = 4
         TabStop = True
       end

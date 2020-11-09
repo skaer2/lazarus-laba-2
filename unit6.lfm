@@ -111,7 +111,7 @@ object Form6: TForm6
     object RadioGroup1: TRadioGroup
       Left = 35
       Height = 175
-      Top = 128
+      Top = 120
       Width = 118
       AutoFill = True
       AutoSize = True
