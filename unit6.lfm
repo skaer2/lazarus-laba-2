@@ -161,6 +161,7 @@ object Form6: TForm6
         BorderSpacing.Right = 10
         BorderSpacing.Bottom = 10
         Caption = 'Вторник'
+        OnChange = RdBtnTuesdayChange
         TabOrder = 0
       end
       object RdBtnWednesday: TRadioButton
@@ -179,6 +180,7 @@ object Form6: TForm6
         BorderSpacing.Right = 10
         BorderSpacing.Bottom = 10
         Caption = 'Среда'
+        OnChange = RdBtnWednesdayChange
         TabOrder = 1
       end
       object RdBtnThursday: TRadioButton
@@ -197,6 +199,7 @@ object Form6: TForm6
         BorderSpacing.Right = 10
         BorderSpacing.Bottom = 10
         Caption = 'Четверг'
+        OnChange = RdBtnThursdayChange
         TabOrder = 2
       end
       object RdBtnFriday: TRadioButton
@@ -216,6 +219,7 @@ object Form6: TForm6
         BorderSpacing.Right = 10
         BorderSpacing.Bottom = 10
         Caption = 'Пятница'
+        OnChange = RdBtnFridayChange
         TabOrder = 3
       end
     end
