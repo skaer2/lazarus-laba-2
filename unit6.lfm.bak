@@ -1,10 +1,10 @@
 object Form6: TForm6
   Left = 832
-  Height = 701
+  Height = 538
   Top = 71
   Width = 509
   Caption = 'Form6'
-  ClientHeight = 701
+  ClientHeight = 538
   ClientWidth = 509
   OnCreate = FormCreate
   LCLVersion = '2.0.10.0'
@@ -161,6 +161,7 @@ object Form6: TForm6
         BorderSpacing.Right = 10
         BorderSpacing.Bottom = 10
         Caption = 'Вторник'
+        OnChange = RdBtnTuesdayChange
         TabOrder = 0
       end
       object RdBtnWednesday: TRadioButton
@@ -179,6 +180,7 @@ object Form6: TForm6
         BorderSpacing.Right = 10
         BorderSpacing.Bottom = 10
         Caption = 'Среда'
+        OnChange = RdBtnWednesdayChange
         TabOrder = 1
       end
       object RdBtnThursday: TRadioButton
@@ -197,6 +199,7 @@ object Form6: TForm6
         BorderSpacing.Right = 10
         BorderSpacing.Bottom = 10
         Caption = 'Четверг'
+        OnChange = RdBtnThursdayChange
         TabOrder = 2
       end
       object RdBtnFriday: TRadioButton
@@ -216,6 +219,7 @@ object Form6: TForm6
         BorderSpacing.Right = 10
         BorderSpacing.Bottom = 10
         Caption = 'Пятница'
+        OnChange = RdBtnFridayChange
         TabOrder = 3
       end
     end

@@ -116,11 +116,13 @@ procedure TForm6.ClBtnGroupColorColorChanged(Sender: TObject);
 begin
     While(not LockCrClr) do
     Begin
-	    LockCrClr:=true;
+	    LockCrClr := true;
         currentColor := ClBtnGroupColor.ColorDialog.Color;
     end;
     LockCrClr:=false;
 end;
+
+function scFree(day: integer;
 
 procedure TForm6.BtnAddClick(Sender: TObject);
 begin
@@ -128,8 +130,13 @@ begin
     Begin
          While (not LockCrClr and not LockSelDay)
          Begin
-             if
-         end;
+             LockCrClr := true;
+             LockSelDay := true;
+             if (scFree(selectedDay, EditGroup.Text) ) then
+             Begin
+
+			 end;
+		 end;
     end
     else ShowMessage('Поля не могут быть пустыми');
 end;

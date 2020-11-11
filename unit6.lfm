@@ -1,10 +1,10 @@
 object Form6: TForm6
   Left = 832
-  Height = 701
+  Height = 538
   Top = 71
   Width = 509
   Caption = 'Form6'
-  ClientHeight = 701
+  ClientHeight = 538
   ClientWidth = 509
   OnCreate = FormCreate
   LCLVersion = '2.0.10.0'

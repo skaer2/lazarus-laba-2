@@ -35,7 +35,11 @@ type
    procedure BtnAddClick(Sender: TObject);
    procedure ClBtnGroupColorColorChanged(Sender: TObject);
    procedure FormCreate(Sender: TObject);
+   procedure RdBtnFridayChange(Sender: TObject);
    procedure RdBtnMondayChange(Sender:TObject);
+   procedure RdBtnThursdayChange(Sender: TObject);
+   procedure RdBtnTuesdayChange(Sender: TObject);
+   procedure RdBtnWednesdayChange(Sender: TObject);
    procedure StringGrid1DrawCell(Sender:TObject; aCol,aRow:Integer;
     aRect:TRect; aState:TGridDrawState);
  private
@@ -63,7 +67,7 @@ Const
 var
  Form6: TForm6;
 
- LockCrClr:Boolean;
+ LockCrClr: Boolean;
  currentColor: TColor;
 
  scheduleCells: array[0..ARR_SIZE] of scheduleCell;
@@ -96,7 +100,10 @@ begin
     currentColor:=clDefault;
     LockCrClr:=false;
 
-    RdBtnMonday.Checked:= true;
+    LockSelDay := true;
+    RdBtnMonday.Checked := true;
+    selectedDay := SC_MONDAY;
+    LockSelDay := false;
 end;
 
 procedure TForm6.StringGrid1DrawCell(Sender:TObject; aCol,aRow:Integer;
@@ -109,7 +116,7 @@ procedure TForm6.ClBtnGroupColorColorChanged(Sender: TObject);
 begin
     While(not LockCrClr) do
     Begin
-	    LockCrClr:=true;
+	    LockCrClr := true;
         currentColor := ClBtnGroupColor.ColorDialog.Color;
     end;
     LockCrClr:=false;
@@ -119,14 +126,52 @@ procedure TForm6.BtnAddClick(Sender: TObject);
 begin
     If (EditClass.Text <> '') and (EditGroup.Text <> '') and (EditRoom.Text <> '') then
     Begin
+         While (not LockCrClr and not LockSelDay)
+         Begin
+             LockCrClr := true;
+             LockSelDay := true;
+             if (scFree(selectedDay, EditGroup.Text) ) then
+             Begin
 
+			 end;
+		 end;
     end
     else ShowMessage('Поля не могут быть пустыми');
 end;
 
 procedure TForm6.RdBtnMondayChange(Sender:TObject);
 begin
+    LockSelDay := true;
+    selectedDay := SC_MONDAY;
+    LockSelDay := false;
+end;
 
+procedure TForm6.RdBtnTuesdayChange(Sender: TObject);
+begin
+    LockSelDay := true;
+    selectedDay := SC_TUESDAY;
+    LockSelDay := false;
+end;
+
+procedure TForm6.RdBtnWednesdayChange(Sender: TObject);
+begin
+    LockSelDay := true;
+    selectedDay := SC_WEDNESDAY;
+    LockSelDay := false;
+end;
+
+procedure TForm6.RdBtnThursdayChange(Sender: TObject);
+begin
+    LockSelDay := true;
+    selectedDay := SC_THURSDAY;
+    LockSelDay := false;
+end;
+
+procedure TForm6.RdBtnFridayChange(Sender: TObject);
+begin
+    LockSelDay := true;
+    selectedDay := SC_FRIDAY;
+    LockSelDay := false;
 end;
 
 end.
