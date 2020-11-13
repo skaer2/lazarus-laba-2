@@ -20,21 +20,33 @@ type
    EditGroup: TEdit;
    EditRoom: TEdit;
    GrpBxControls: TGroupBox;
+   LblClassNum: TLabel;
    LblGroup: TLabel;
    LblClass: TLabel;
    LblColor: TLabel;
    LblDay:TLabel;
    LblRoom: TLabel;
+   RadioGroup2: TRadioGroup;
+   RdBtnClNumFifth: TRadioButton;
    RdBtnMonday:TRadioButton;
+   RdBtnClNumFirst: TRadioButton;
+   RdBtnClNumThourth: TRadioButton;
    RdBtnTuesday:TRadioButton;
+   RdBtnClNumSecond: TRadioButton;
    RdBtnWednesday:TRadioButton;
    RdBtnThursday:TRadioButton;
    RdBtnFriday:TRadioButton;
    RadioGroup1:TRadioGroup;
+   RdBtnClNumThird: TRadioButton;
    StringGrid1: TStringGrid;
    procedure BtnAddClick(Sender: TObject);
    procedure ClBtnGroupColorColorChanged(Sender: TObject);
    procedure FormCreate(Sender: TObject);
+   procedure RdBtnClNumFifthChange(Sender: TObject);
+   procedure RdBtnClNumFirstChange(Sender: TObject);
+   procedure RdBtnClNumSecondChange(Sender: TObject);
+   procedure RdBtnClNumThirdChange(Sender: TObject);
+   procedure RdBtnClNumThourthChange(Sender: TObject);
    procedure RdBtnFridayChange(Sender: TObject);
    procedure RdBtnMondayChange(Sender:TObject);
    procedure RdBtnThursdayChange(Sender: TObject);
@@ -49,11 +61,12 @@ type
  end;
 
  scheduleCell = record
-   groupName:String;
-   roomNumber:String;
-   className:String;
-   cellColor:TColor;
-   day:integer; // 1 for monday to 5 for friday
+   groupName: String;
+   roomNumber: String;
+   className: String;
+   cellColor: TColor;
+   classNum: Integer;
+   day: integer; // 1 for monday to 5 for friday
  end;
 
 Const
@@ -77,6 +90,9 @@ var
  selectedDay: integer;
  LockSelDay: Boolean;
 
+ SelectedClNum: integer;
+ LockSelClNum: Boolean;
+
 implementation
 
 {$R *.lfm}
@@ -86,7 +102,7 @@ implementation
 procedure TForm6.FormCreate(Sender: TObject);
 begin
     StringGrid1.ColCount:=6;
-    StringGrid1.RowCount:=1;
+    StringGrid1.RowCount:=6;
     StringGrid1.FixedCols:=1;
     StringGrid1.FixedRows:=1;
 
@@ -96,6 +112,12 @@ begin
     StringGrid1.Cells[4,0] := 'Четверг';
     StringGrid1.Cells[5,0] := 'Пятница';
 
+    StringGrid1.Cells[0,1] := '1';
+    StringGrid1.Cells[0,2] := '2';
+    StringGrid1.Cells[0,3] := '3';
+    StringGrid1.Cells[0,4] := '4';
+    StringGrid1.Cells[0,5] := '5';
+
     LockCrClr:=true;
     currentColor:=clDefault;
     LockCrClr:=false;
@@ -104,6 +126,10 @@ begin
     RdBtnMonday.Checked := true;
     selectedDay := SC_MONDAY;
     LockSelDay := false;
+
+    LockSelClNum := true;
+    SelectedClNum := 1;
+    LockSelClNum := false;
 end;
 
 procedure TForm6.StringGrid1DrawCell(Sender:TObject; aCol,aRow:Integer;
@@ -116,17 +142,36 @@ procedure TForm6.ClBtnGroupColorColorChanged(Sender: TObject);
 begin
     While(not LockCrClr) do
     Begin
-	    LockCrClr:=true;
+	    LockCrClr := true;
         currentColor := ClBtnGroupColor.ColorDialog.Color;
     end;
     LockCrClr:=false;
+end;
+
+function isScFree(day: integer; classNum: Integer; room: String): Boolean;
+Var
+  i:Integer;
+  f: Boolean;
+Begin
+    f := true;
+    for i := 0 to currentIndex do
+        If (scheduleCells[i].day = day) and (scheduleCells[i].classNum = classNum) then ;
 end;
 
 procedure TForm6.BtnAddClick(Sender: TObject);
 begin
     If (EditClass.Text <> '') and (EditGroup.Text <> '') and (EditRoom.Text <> '') then
     Begin
-         While (not LockCrClr and not LockSelDay
+         While (not LockCrClr and not LockSelDay)
+         Begin
+             LockCrClr := true;
+             LockSelDay := true;
+             if (isScFree(selectedDay, SelectedClNum, EditRoom.Text) ) then
+             Begin
+
+	     end;
+             currentIndex := currentIndex + 1;
+	 end;
     end
     else ShowMessage('Поля не могут быть пустыми');
 end;
@@ -164,6 +209,41 @@ begin
     LockSelDay := true;
     selectedDay := SC_FRIDAY;
     LockSelDay := false;
+end;
+
+procedure TForm6.RdBtnClNumFirstChange(Sender: TObject);
+begin
+    LockSelClNum := true;
+    SelectedClNum := 1;
+    LockSelClNum := false;
+end;
+
+procedure TForm6.RdBtnClNumSecondChange(Sender: TObject);
+begin
+    LockSelClNum := true;
+    SelectedClNum := 2;
+    LockSelClNum := false;
+end;
+
+procedure TForm6.RdBtnClNumThirdChange(Sender: TObject);
+begin
+    LockSelClNum := true;
+    SelectedClNum := 3;
+    LockSelClNum := false;
+end;
+
+procedure TForm6.RdBtnClNumThourthChange(Sender: TObject);
+begin
+    LockSelClNum := true;
+    SelectedClNum := 4;
+    LockSelClNum := false;
+end;
+
+procedure TForm6.RdBtnClNumFifthChange(Sender: TObject);
+begin
+    LockSelClNum := true;
+    SelectedClNum := 5;
+    LockSelClNum := false;
 end;
 
 end.
