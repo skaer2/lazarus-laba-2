@@ -1,34 +1,52 @@
 object Form6: TForm6
-  Left = 832
-  Height = 538
+  Left = 570
+  Height = 793
   Top = 71
-  Width = 509
+  Width = 799
   Caption = 'Form6'
-  ClientHeight = 538
-  ClientWidth = 509
+  ClientHeight = 793
+  ClientWidth = 799
   OnCreate = FormCreate
-  LCLVersion = '2.0.10.0'
+  LCLVersion = '2.0.6.0'
   object StringGrid1: TStringGrid
-    Left = 18
-    Height = 188
-    Top = 22
-    Width = 464
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = GrpBxControls
+    Left = 20
+    Height = 411
+    Top = 20
+    Width = 759
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Left = 20
+    BorderSpacing.Top = 20
+    BorderSpacing.Right = 20
+    BorderSpacing.Bottom = 20
     ColCount = 6
+    DefaultColWidth = 120
+    DefaultRowHeight = 60
     RowCount = 1
     TabOrder = 0
     OnDrawCell = StringGrid1DrawCell
   end
   object GrpBxControls: TGroupBox
-    Left = 8
-    Height = 392
-    Top = 216
+    AnchorSideLeft.Control = Owner
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 20
+    Height = 322
+    Top = 451
     Width = 472
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 20
+    BorderSpacing.Bottom = 20
     Caption = 'Ввод данных'
-    ClientHeight = 372
-    ClientWidth = 468
+    ClientHeight = 304
+    ClientWidth = 470
     TabOrder = 1
     object BtnAdd: TButton
-      Left = 368
+      Left = 392
       Height = 25
       Top = 144
       Width = 75
@@ -37,7 +55,7 @@ object Form6: TForm6
       TabOrder = 0
     end
     object ClBtnGroupColor: TColorButton
-      Left = 280
+      Left = 304
       Height = 25
       Top = 144
       Width = 80
@@ -48,16 +66,16 @@ object Form6: TForm6
       OnColorChanged = ClBtnGroupColorColorChanged
     end
     object LblColor: TLabel
-      Left = 285
+      Left = 309
       Height = 15
       Top = 128
-      Width = 70
+      Width = 85
       Caption = 'Цвет группы'
       ParentColor = False
     end
     object EditRoom: TEdit
       Left = 352
-      Height = 23
+      Height = 33
       Top = 24
       Width = 80
       TabOrder = 1
@@ -66,13 +84,13 @@ object Form6: TForm6
       Left = 360
       Height = 15
       Top = 4
-      Width = 59
+      Width = 77
       Caption = 'Аудитория'
       ParentColor = False
     end
     object EditClass: TEdit
       Left = 35
-      Height = 23
+      Height = 33
       Top = 24
       Width = 191
       TabOrder = 2
@@ -81,7 +99,7 @@ object Form6: TForm6
       Left = 48
       Height = 15
       Top = 4
-      Width = 69
+      Width = 88
       Caption = 'Дисциплина'
       ParentColor = False
     end
@@ -89,13 +107,13 @@ object Form6: TForm6
       Left = 48
       Height = 15
       Top = 56
-      Width = 39
+      Width = 45
       Caption = 'Группа'
       ParentColor = False
     end
     object EditGroup: TEdit
       Left = 35
-      Height = 23
+      Height = 33
       Top = 72
       Width = 163
       TabOrder = 3
@@ -104,15 +122,15 @@ object Form6: TForm6
       Left = 48
       Height = 15
       Top = 104
-      Width = 27
+      Width = 36
       Caption = 'День'
       ParentColor = False
     end
     object RadioGroup1: TRadioGroup
       Left = 35
-      Height = 175
+      Height = 177
       Top = 120
-      Width = 118
+      Width = 144
       AutoFill = True
       AutoSize = True
       ChildSizing.LeftRightSpacing = 6
@@ -122,8 +140,8 @@ object Form6: TForm6
       ChildSizing.ShrinkVertical = crsScaleChilds
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 1
-      ClientHeight = 155
-      ClientWidth = 114
+      ClientHeight = 175
+      ClientWidth = 142
       TabOrder = 4
       object RdBtnMonday: TRadioButton
         AnchorSideLeft.Control = RadioGroup1
@@ -132,9 +150,9 @@ object Form6: TForm6
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = RdBtnTuesday
         Left = 10
-        Height = 19
+        Height = 23
         Top = 10
-        Width = 94
+        Width = 122
         BorderSpacing.Left = 10
         BorderSpacing.Top = 10
         BorderSpacing.Right = 10
@@ -153,9 +171,9 @@ object Form6: TForm6
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = RdBtnWednesday
         Left = 10
-        Height = 19
-        Top = 39
-        Width = 66
+        Height = 23
+        Top = 43
+        Width = 86
         BorderSpacing.Left = 10
         BorderSpacing.Top = 10
         BorderSpacing.Right = 10
@@ -172,9 +190,9 @@ object Form6: TForm6
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = RdBtnThursday
         Left = 10
-        Height = 19
-        Top = 68
-        Width = 53
+        Height = 23
+        Top = 76
+        Width = 69
         BorderSpacing.Left = 10
         BorderSpacing.Top = 10
         BorderSpacing.Right = 10
@@ -191,9 +209,9 @@ object Form6: TForm6
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = RdBtnFriday
         Left = 10
-        Height = 19
-        Top = 97
-        Width = 63
+        Height = 23
+        Top = 109
+        Width = 81
         BorderSpacing.Left = 10
         BorderSpacing.Top = 10
         BorderSpacing.Right = 10
@@ -211,9 +229,9 @@ object Form6: TForm6
         AnchorSideBottom.Control = RadioGroup1
         AnchorSideBottom.Side = asrBottom
         Left = 10
-        Height = 19
-        Top = 126
-        Width = 67
+        Height = 23
+        Top = 142
+        Width = 86
         BorderSpacing.Left = 10
         BorderSpacing.Top = 10
         BorderSpacing.Right = 10
@@ -224,18 +242,18 @@ object Form6: TForm6
       end
     end
     object LblClassNum: TLabel
-      Left = 168
+      Left = 176
       Height = 15
       Top = 104
-      Width = 28
+      Width = 35
       Caption = 'Пара'
       ParentColor = False
     end
     object RadioGroup2: TRadioGroup
-      Left = 160
-      Height = 175
+      Left = 176
+      Height = 177
       Top = 120
-      Width = 99
+      Width = 120
       AutoFill = True
       AutoSize = True
       ChildSizing.LeftRightSpacing = 6
@@ -245,8 +263,8 @@ object Form6: TForm6
       ChildSizing.ShrinkVertical = crsScaleChilds
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 1
-      ClientHeight = 155
-      ClientWidth = 95
+      ClientHeight = 175
+      ClientWidth = 118
       TabOrder = 5
       object RdBtnClNumFirst: TRadioButton
         AnchorSideLeft.Control = RadioGroup2
@@ -255,9 +273,9 @@ object Form6: TForm6
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = RdBtnClNumSecond
         Left = 10
-        Height = 19
+        Height = 23
         Top = 10
-        Width = 60
+        Width = 77
         BorderSpacing.Left = 10
         BorderSpacing.Top = 10
         BorderSpacing.Right = 10
@@ -276,9 +294,9 @@ object Form6: TForm6
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = RdBtnClNumThird
         Left = 10
-        Height = 19
-        Top = 39
-        Width = 58
+        Height = 23
+        Top = 43
+        Width = 76
         BorderSpacing.Left = 10
         BorderSpacing.Top = 10
         BorderSpacing.Right = 10
@@ -295,9 +313,9 @@ object Form6: TForm6
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = RdBtnClNumThourth
         Left = 10
-        Height = 19
-        Top = 68
-        Width = 56
+        Height = 23
+        Top = 76
+        Width = 74
         BorderSpacing.Left = 10
         BorderSpacing.Top = 10
         BorderSpacing.Right = 10
@@ -314,9 +332,9 @@ object Form6: TForm6
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = RdBtnClNumFifth
         Left = 10
-        Height = 19
-        Top = 97
-        Width = 75
+        Height = 23
+        Top = 109
+        Width = 98
         BorderSpacing.Left = 10
         BorderSpacing.Top = 10
         BorderSpacing.Right = 10
@@ -334,9 +352,9 @@ object Form6: TForm6
         AnchorSideBottom.Control = RadioGroup2
         AnchorSideBottom.Side = asrBottom
         Left = 10
-        Height = 19
-        Top = 126
-        Width = 52
+        Height = 23
+        Top = 142
+        Width = 67
         BorderSpacing.Left = 10
         BorderSpacing.Top = 10
         BorderSpacing.Right = 10
@@ -371,7 +389,7 @@ object Form6: TForm6
       'ColorS=F0FBFF'
       'ColorT=A4A0A0'
     )
-    Left = 304
-    Top = 248
+    left = 304
+    top = 248
   end
 end

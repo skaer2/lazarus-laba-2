@@ -93,14 +93,34 @@ var
  SelectedClNum: integer;
  LockSelClNum: Boolean;
 
+ check:Integer;
+
 implementation
 
 {$R *.lfm}
 
 { TForm6 }
 
+function newScheduleCell(groupName, roomNumber, className: String; cellColor: TColor; classNum, day: integer): scheduleCell;
+var
+    buff: scheduleCell;
+begin
+    buff.groupName := groupName;
+    buff.roomNumber := roomNumber;
+    buff.className := className;
+    buff.cellColor := cellColor;
+    buff.classNum := classNum;
+    buff.day := day;
+
+    result := buff;
+end;
+
 procedure TForm6.FormCreate(Sender: TObject);
 begin
+     check := 1;
+
+    currentIndex := -1;
+
     StringGrid1.ColCount:=6;
     StringGrid1.RowCount:=6;
     StringGrid1.FixedCols:=1;
@@ -134,17 +154,50 @@ end;
 
 procedure TForm6.StringGrid1DrawCell(Sender:TObject; aCol,aRow:Integer;
  aRect:TRect; aState:TGridDrawState);
+var
+   multiline: TTextStyle;
+   i: Integer;
 begin
+    While (LockCrClr or LockSelDay or LockSelClNum) do
+    Begin
+         ShowMessage('Wating');
+    end;
 
+    LockCrClr := true;
+    LockSelDay := true;
+    LockSelClNum := true;
+
+    For i := 0 to currentIndex - 1 do
+        if (ACol = scheduleCells[i].day) and (ARow = scheduleCells[i].classNum) then
+        begin
+             ShowMessage('Painting');
+             check := 0;
+             with TStringGrid(Sender) do
+             begin
+             multiline := Canvas.TextStyle;
+             multiline.SingleLine := false;
+             Canvas.TextStyle := multiline;
+             Cells[ACol,ARow] := 'Группа ' + scheduleCells[i].groupName + '/ауд.' + scheduleCells[i].roomNumber + LineEnding + scheduleCells[i].className;
+             Canvas.Brush.Color := scheduleCells[i].cellColor;
+             Canvas.FillRect(aRect);
+             Canvas.TextRect(aRect,aRect.Left+2,aRect.Top+2,Cells[ACol, ARow], multiline);
+             end;
+        end;
+
+    LockCrClr := false;
+    LockSelDay := false;
+    LockSelClNum := false;
 end;
 
 procedure TForm6.ClBtnGroupColorColorChanged(Sender: TObject);
 begin
-    While(not LockCrClr) do
+    While(LockCrClr) do
     Begin
-	    LockCrClr := true;
-        currentColor := ClBtnGroupColor.ColorDialog.Color;
+    ShowMessage('Wating');
     end;
+	LockCrClr := true;
+    currentColor := ClBtnGroupColor.ColorDialog.Color;
+
     LockCrClr:=false;
 end;
 
@@ -154,30 +207,43 @@ Var
   f: Boolean;
 Begin
     f := true;
-    for i := 0 to currentIndex do
-        If (scheduleCells[i].day = day) and (scheduleCells[i].classNum = classNum) then ;
+    for i := 0 to currentIndex - 1 do
+        If (scheduleCells[i].day = day) and (scheduleCells[i].classNum = classNum) and (scheduleCells[i].roomNumber = room) then f := false;
+    result := f;
 end;
 
 procedure TForm6.BtnAddClick(Sender: TObject);
 begin
     If (EditClass.Text <> '') and (EditGroup.Text <> '') and (EditRoom.Text <> '') then
     Begin
-         While (not LockCrClr and not LockSelDay)
+         While (LockCrClr or LockSelDay or LockSelClNum) do
          Begin
-             LockCrClr := true;
-             LockSelDay := true;
-             if (isScFree(selectedDay, SelectedClNum, EditRoom.Text) ) then
-             Begin
-
+              ShowMessage('Wating');
 	     end;
-             currentIndex := currentIndex + 1;
-	 end;
+         LockCrClr := true;
+         LockSelDay := true;
+         LockSelClNum := true;
+         if (isScFree(selectedDay, SelectedClNum, EditRoom.Text)) then
+         Begin
+              currentIndex := currentIndex + 1;
+              scheduleCells[currentIndex] := newScheduleCell(EditGroup.Text, EditRoom.Text, EditClass.Text, currentColor, SelectedClNum, selectedDay);
+	     end
+         else ShowMessage('Аудитория занята');
+
+         LockCrClr := false;
+         LockSelDay := false;
+         LockSelClNum := false;
     end
     else ShowMessage('Поля не могут быть пустыми');
+    StringGrid1.Repaint();
+
 end;
 
 procedure TForm6.RdBtnMondayChange(Sender:TObject);
 begin
+    While(LockSelDay) do
+    Begin
+    end;
     LockSelDay := true;
     selectedDay := SC_MONDAY;
     LockSelDay := false;
@@ -185,6 +251,9 @@ end;
 
 procedure TForm6.RdBtnTuesdayChange(Sender: TObject);
 begin
+    While(LockSelDay) do
+    Begin
+    end;
     LockSelDay := true;
     selectedDay := SC_TUESDAY;
     LockSelDay := false;
@@ -192,6 +261,9 @@ end;
 
 procedure TForm6.RdBtnWednesdayChange(Sender: TObject);
 begin
+    While(LockSelDay) do
+    Begin
+    end;
     LockSelDay := true;
     selectedDay := SC_WEDNESDAY;
     LockSelDay := false;
@@ -199,6 +271,9 @@ end;
 
 procedure TForm6.RdBtnThursdayChange(Sender: TObject);
 begin
+    While(LockSelDay) do
+    Begin
+    end;
     LockSelDay := true;
     selectedDay := SC_THURSDAY;
     LockSelDay := false;
@@ -206,6 +281,9 @@ end;
 
 procedure TForm6.RdBtnFridayChange(Sender: TObject);
 begin
+    While(LockSelDay) do
+    Begin
+    end;
     LockSelDay := true;
     selectedDay := SC_FRIDAY;
     LockSelDay := false;
@@ -213,6 +291,9 @@ end;
 
 procedure TForm6.RdBtnClNumFirstChange(Sender: TObject);
 begin
+    While(LockSelClNum) do
+    Begin
+    end;
     LockSelClNum := true;
     SelectedClNum := 1;
     LockSelClNum := false;
@@ -220,6 +301,9 @@ end;
 
 procedure TForm6.RdBtnClNumSecondChange(Sender: TObject);
 begin
+    While(LockSelClNum) do
+    Begin
+    end;
     LockSelClNum := true;
     SelectedClNum := 2;
     LockSelClNum := false;
@@ -227,6 +311,9 @@ end;
 
 procedure TForm6.RdBtnClNumThirdChange(Sender: TObject);
 begin
+    While(LockSelClNum) do
+    Begin
+    end;
     LockSelClNum := true;
     SelectedClNum := 3;
     LockSelClNum := false;
@@ -234,6 +321,9 @@ end;
 
 procedure TForm6.RdBtnClNumThourthChange(Sender: TObject);
 begin
+    While(LockSelClNum) do
+    Begin
+    end;
     LockSelClNum := true;
     SelectedClNum := 4;
     LockSelClNum := false;
@@ -241,6 +331,9 @@ end;
 
 procedure TForm6.RdBtnClNumFifthChange(Sender: TObject);
 begin
+    While(LockSelClNum) do
+    Begin
+    end;
     LockSelClNum := true;
     SelectedClNum := 5;
     LockSelClNum := false;
