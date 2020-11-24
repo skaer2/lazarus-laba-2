@@ -370,7 +370,6 @@ object Form6: TForm6
       Top = 74
       Width = 75
       Caption = 'Button1'
-      OnClick = Button1Click
       TabOrder = 6
     end
   end
