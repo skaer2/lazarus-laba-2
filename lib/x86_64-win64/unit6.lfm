@@ -1,34 +1,52 @@
 object Form6: TForm6
-  Left = 832
-  Height = 538
+  Left = 570
+  Height = 793
   Top = 71
-  Width = 509
+  Width = 799
   Caption = 'Form6'
-  ClientHeight = 538
-  ClientWidth = 509
+  ClientHeight = 793
+  ClientWidth = 799
   OnCreate = FormCreate
   LCLVersion = '2.0.10.0'
   object StringGrid1: TStringGrid
-    Left = 18
-    Height = 188
-    Top = 22
-    Width = 464
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = GrpBxControls
+    Left = 20
+    Height = 411
+    Top = 20
+    Width = 759
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Left = 20
+    BorderSpacing.Top = 20
+    BorderSpacing.Right = 20
+    BorderSpacing.Bottom = 20
     ColCount = 6
-    RowCount = 1
+    DefaultColWidth = 120
+    DefaultRowHeight = 60
+    RowCount = 6
     TabOrder = 0
     OnDrawCell = StringGrid1DrawCell
   end
   object GrpBxControls: TGroupBox
-    Left = 8
-    Height = 392
-    Top = 216
+    AnchorSideLeft.Control = Owner
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 20
+    Height = 322
+    Top = 451
     Width = 472
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 20
+    BorderSpacing.Bottom = 20
     Caption = 'Ввод данных'
-    ClientHeight = 372
+    ClientHeight = 302
     ClientWidth = 468
     TabOrder = 1
     object BtnAdd: TButton
-      Left = 368
+      Left = 392
       Height = 25
       Top = 144
       Width = 75
@@ -37,7 +55,7 @@ object Form6: TForm6
       TabOrder = 0
     end
     object ClBtnGroupColor: TColorButton
-      Left = 280
+      Left = 304
       Height = 25
       Top = 144
       Width = 80
@@ -48,7 +66,7 @@ object Form6: TForm6
       OnColorChanged = ClBtnGroupColorColorChanged
     end
     object LblColor: TLabel
-      Left = 285
+      Left = 309
       Height = 15
       Top = 128
       Width = 70
@@ -222,6 +240,138 @@ object Form6: TForm6
         OnChange = RdBtnFridayChange
         TabOrder = 3
       end
+    end
+    object LblClassNum: TLabel
+      Left = 176
+      Height = 15
+      Top = 104
+      Width = 28
+      Caption = 'Пара'
+      ParentColor = False
+    end
+    object RadioGroup2: TRadioGroup
+      Left = 176
+      Height = 175
+      Top = 120
+      Width = 99
+      AutoFill = True
+      AutoSize = True
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 155
+      ClientWidth = 95
+      TabOrder = 5
+      object RdBtnClNumFirst: TRadioButton
+        AnchorSideLeft.Control = RadioGroup2
+        AnchorSideTop.Control = RadioGroup2
+        AnchorSideRight.Control = RadioGroup2
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = RdBtnClNumSecond
+        Left = 10
+        Height = 19
+        Top = 10
+        Width = 60
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Bottom = 10
+        Caption = 'Первая'
+        Checked = True
+        OnChange = RdBtnClNumFirstChange
+        TabOrder = 4
+        TabStop = True
+      end
+      object RdBtnClNumSecond: TRadioButton
+        AnchorSideLeft.Control = RadioGroup2
+        AnchorSideTop.Control = RdBtnClNumFirst
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = RadioGroup2
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = RdBtnClNumThird
+        Left = 10
+        Height = 19
+        Top = 39
+        Width = 58
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Bottom = 10
+        Caption = 'Вторая'
+        OnChange = RdBtnClNumSecondChange
+        TabOrder = 0
+      end
+      object RdBtnClNumThird: TRadioButton
+        AnchorSideLeft.Control = RadioGroup2
+        AnchorSideTop.Control = RdBtnClNumSecond
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = RadioGroup2
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = RdBtnClNumThourth
+        Left = 10
+        Height = 19
+        Top = 68
+        Width = 57
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Bottom = 10
+        Caption = 'Третья'
+        OnChange = RdBtnClNumThirdChange
+        TabOrder = 1
+      end
+      object RdBtnClNumThourth: TRadioButton
+        AnchorSideLeft.Control = RadioGroup2
+        AnchorSideTop.Control = RdBtnClNumThird
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = RadioGroup2
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = RdBtnClNumFifth
+        Left = 10
+        Height = 19
+        Top = 97
+        Width = 75
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Bottom = 10
+        Caption = 'Четвёртая'
+        OnChange = RdBtnClNumThourthChange
+        TabOrder = 2
+      end
+      object RdBtnClNumFifth: TRadioButton
+        AnchorSideLeft.Control = RadioGroup2
+        AnchorSideTop.Control = RdBtnClNumThourth
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = RadioGroup2
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = RadioGroup2
+        AnchorSideBottom.Side = asrBottom
+        Left = 10
+        Height = 19
+        Top = 126
+        Width = 52
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 10
+        BorderSpacing.Bottom = 10
+        Caption = 'Пятая'
+        OnChange = RdBtnClNumFifthChange
+        TabOrder = 3
+      end
+    end
+    object Button1: TButton
+      Left = 353
+      Height = 25
+      Top = 74
+      Width = 75
+      Caption = 'Button1'
+      OnClick = Button1Click
+      TabOrder = 6
     end
   end
   object ColorDialog1: TColorDialog

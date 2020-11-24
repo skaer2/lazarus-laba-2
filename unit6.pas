@@ -14,6 +14,7 @@ type
 
  TForm6 = class(TForm)
    BtnAdd: TButton;
+   Button1:TButton;
    ClBtnGroupColor: TColorButton;
    ColorDialog1: TColorDialog;
    EditClass: TEdit;
@@ -40,6 +41,7 @@ type
    RdBtnClNumThird: TRadioButton;
    StringGrid1: TStringGrid;
    procedure BtnAddClick(Sender: TObject);
+   procedure Button1Click(Sender:TObject);
    procedure ClBtnGroupColorColorChanged(Sender: TObject);
    procedure FormCreate(Sender: TObject);
    procedure RdBtnClNumFifthChange(Sender: TObject);
@@ -94,6 +96,8 @@ var
  LockSelClNum: Boolean;
 
  check:Integer;
+
+ g:Integer;
 
 implementation
 
@@ -150,6 +154,8 @@ begin
     LockSelClNum := true;
     SelectedClNum := 1;
     LockSelClNum := false;
+
+    g := 1;
 end;
 
 procedure TForm6.StringGrid1DrawCell(Sender:TObject; aCol,aRow:Integer;
@@ -158,42 +164,27 @@ var
    multiline: TTextStyle;
    i: Integer;
 begin
-    While (LockCrClr or LockSelDay or LockSelClNum) do
-    Begin
-         ShowMessage('WatingDrawCell');
-    end;
-
-    LockCrClr := true;
-    LockSelDay := true;
-    LockSelClNum := true;
-
-    For i := 0 to currentIndex - 1 do
+    For i := 0 to currentIndex do
         if (ACol = scheduleCells[i].day) and (ARow = scheduleCells[i].classNum) then
         begin
-             ShowMessage('Painting');
              check := 0;
              with TStringGrid(Sender) do
-             begin
-             multiline := Canvas.TextStyle;
-             multiline.SingleLine := false;
-             Canvas.TextStyle := multiline;
-             Cells[ACol,ARow] := 'Группа ' + scheduleCells[i].groupName + '/ауд.' + scheduleCells[i].roomNumber + LineEnding + scheduleCells[i].className;
-             Canvas.Brush.Color := scheduleCells[i].cellColor;
-             Canvas.FillRect(aRect);
-             Canvas.TextRect(aRect,aRect.Left+2,aRect.Top+2,Cells[ACol, ARow], multiline);
-             end;
+	             begin
+                 multiline := Canvas.TextStyle;
+                 multiline.SingleLine := false;
+                 Canvas.TextStyle := multiline;
+                 Cells[ACol,ARow] := 'Группа ' + scheduleCells[i].groupName + '/ауд.' + scheduleCells[i].roomNumber + LineEnding + scheduleCells[i].className;
+                 Canvas.Brush.Color := scheduleCells[i].cellColor;
+                 Canvas.FillRect(aRect);
+                 Canvas.TextRect(aRect,aRect.Left+2,aRect.Top+2,Cells[ACol, ARow], multiline);
+                 end;
         end;
-
-    LockCrClr := false;
-    LockSelDay := false;
-    LockSelClNum := false;
 end;
 
 procedure TForm6.ClBtnGroupColorColorChanged(Sender: TObject);
 begin
     While(LockCrClr) do
     Begin
-    ShowMessage('WatingColorChange');
     end;
 	LockCrClr := true;
     currentColor := ClBtnGroupColor.ColorDialog.Color;
@@ -207,7 +198,7 @@ Var
   f: Boolean;
 Begin
     f := true;
-    for i := 0 to currentIndex - 1 do
+    for i := 0 to currentIndex do
         If (scheduleCells[i].day = day) and (scheduleCells[i].classNum = classNum) and (scheduleCells[i].roomNumber = room) then f := false;
     result := f;
 end;
@@ -218,7 +209,6 @@ begin
     Begin
          While (LockCrClr or LockSelDay or LockSelClNum) do
          Begin
-              ShowMessage('WatingAdd');
 	     end;
          LockCrClr := true;
          LockSelDay := true;
@@ -237,6 +227,12 @@ begin
     else ShowMessage('Поля не могут быть пустыми');
     StringGrid1.Repaint();
 
+end;
+
+procedure TForm6.Button1Click(Sender:TObject);
+begin
+     g:= 1;
+     StringGrid1.Repaint();
 end;
 
 procedure TForm6.RdBtnMondayChange(Sender:TObject);
