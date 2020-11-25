@@ -61,7 +61,7 @@
         <UnitName Value="Unit3"/>
         <EditorIndex Value="4"/>
         <TopLine Value="24"/>
-        <CursorPos Y="14"/>
+        <CursorPos Y="24"/>
         <UsageCount Value="81"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -74,8 +74,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit4"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="46"/>
-        <CursorPos Y="37"/>
+        <CursorPos Y="38"/>
         <UsageCount Value="81"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -88,8 +87,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit5"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="59"/>
-        <CursorPos X="43" Y="101"/>
+        <CursorPos Y="43"/>
         <UsageCount Value="81"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -103,8 +101,8 @@
         <UnitName Value="Unit6"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="24"/>
-        <CursorPos X="48" Y="52"/>
+        <TopLine Value="154"/>
+        <CursorPos Y="154"/>
         <UsageCount Value="81"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>

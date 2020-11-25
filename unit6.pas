@@ -55,6 +55,7 @@ type
    procedure RdBtnWednesdayChange(Sender: TObject);
    procedure StringGrid1DrawCell(Sender:TObject; aCol,aRow:Integer;
     aRect:TRect; aState:TGridDrawState);
+   procedure populateGrid();
  private
 
  public
@@ -152,7 +153,6 @@ begin
                  multiline := Canvas.TextStyle;
                  multiline.SingleLine := false;
                  Canvas.TextStyle := multiline;
-                 Cells[ACol,ARow] := 'Группа ' + scheduleCells[i].groupName + '/ауд.' + scheduleCells[i].roomNumber + LineEnding + scheduleCells[i].className;
                  Canvas.Brush.Color := scheduleCells[i].cellColor;
                  Canvas.FillRect(aRect);
                  Canvas.TextRect(aRect,aRect.Left+2,aRect.Top+2,Cells[ACol, ARow], multiline);
@@ -176,6 +176,19 @@ Begin
     result := f;
 end;
 
+procedure TForm6.populateGrid();
+Var
+  i:Integer;
+  k,l:Integer;
+Begin
+    for i := 0 to currentIndex do
+    Begin
+        k := scheduleCells[i].day;
+        l := scheduleCells[i].classNum;
+        StringGrid1.Cells[k,l] := 'Группа ' + scheduleCells[i].groupName + '/ауд.' + scheduleCells[i].roomNumber + LineEnding + scheduleCells[i].className;
+	end;
+end;
+
 procedure TForm6.BtnAddClick(Sender: TObject);
 begin
     If (EditClass.Text <> '') and (EditGroup.Text <> '') and (EditRoom.Text <> '') then
@@ -188,6 +201,7 @@ begin
          else ShowMessage('Аудитория занята');
     end
     else ShowMessage('Поля не могут быть пустыми');
+    populateGrid();
     StringGrid1.Repaint();
 
 end;
